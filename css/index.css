@@ -205,3 +205,31 @@ canvas {
   background-color:#fff;
   color:#d66850;
 }
+
+/* resume */
+.resume{
+  width:100%;
+  color:#fff;
+  font-size:26px;
+  text-align:center;
+  top:5%;
+}
+.resume .r-item{
+  width:100%;
+  margin:0 auto;
+  margin-top:30px;
+}
+.resume .r-item span{
+  display:inline-block;
+}
+.resume .r-item span:first-child{
+  color:#f961af;
+  width:150px;
+  text-align:right;
+}
+.resume .r-item span:last-child{
+  width:70%;
+  vertical-align: top;
+  padding-left:20px;
+  text-align:left;
+}

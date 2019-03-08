@@ -3,29 +3,109 @@
 <head>
   <title>night</title>
   <meta name="viewport" content="width=750px, user-scalable=no"/>
+  <meta http-equiv="Content-type" content="text/html;charset=utf-8">
   <link rel="stylesheet" href="./css/index.css">
   <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css>
 </head>
 <body>
-  <div class="wrapper">
+  <div class="wrapper" id="app">
     <!-- night background -->
     <div class="background-effect">
         <div class="star1"></div>
         <div class="star2"></div>
         <div class="star3"></div>
     </div>
+    <input type="radio" name="pure-nav" id="item-0">
+    <section class="home">
+      <canvas id="canvas"></canvas>
+      <div class="content">
+        <img  class="head-pic"src="./images/head.jpeg">
+        <div class="name">lele88lala</div>
+      </div>
+    </section>
     <!-- block one -->
-    <input type="radio" name="pure-nav" id="item-1">
-    
+    <input type="radio" name="pure-nav" id="item-3" checked="checked">
+    <!-- contact block -->
+    <section class="contact">
+      <div class="one"><span class="col">Do</span> you want to <span class="col">have</span> a personal <span class="col">website？</span></div>
+      <div class="one"><span class="col">Do</span> you want to <span class="col">discuss</span> technical issues <span class="col">with me？</span></div>
+      <div class="one"><span class="col">Then</span> contact <span class="col">me!</span></div>
+      <div class="one">e-mail: lele88lala@163.com</div>
+      <div class="one">QQ: 1207018406</div>
+      <div class="link">
+        <i class="fa fa-github" aria-hidden="true" @click="goTo('github')"></i>
+        <span class="jian" @click="goTo('jianshu')">简书</span>
+      </div>
+    </section>
     <!-- footer -->
     <div class="footer-w">
       <div class="footer">
-        <div class="item item-checked"><i class="fa fa-home" aria-hidden="true"></i>Home</div>
-        <div class="item"><i class="fa fa fa-file-text" aria-hidden="true"></i>Resume</div>
-        <div class="item"><i class="fa fa fa-file" aria-hidden="true"></i>Blog</div>
-        <div class="item"><i class="fa fa fa-heart" aria-hidden="true"></i>Contact</div>
+        <div :class="{item: true, 'item-checked':checked1}" @click="checked(1)"><label for="item-0"><i class="fa fa-home" aria-hidden="true"></i>Home</label></div>
+        <div :class="{item: true, 'item-checked':checked2}" @click="checked(2)"><label for="item-1"><i class="fa fa fa-file-text" aria-hidden="true"></i>Resume</label></div>
+        <div :class="{item: true, 'item-checked':checked3}" @click="checked(3)"><label for="item-2"><i class="fa fa fa-file" aria-hidden="true"></i>Blog</label></div>
+        <div :class="{item: true, 'item-checked':checked4}" @click="checked(4)"><label for="item-3"><i class="fa fa fa-heart" aria-hidden="true"></i>Contact</label></div>
       </div>
     </div>
   </div>  
 </body>
 </html>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+var app = new Vue({
+  el: '#app',
+  data: {
+    checked1: false,
+    checked2: false,
+    checked3: false,
+    checked4: false
+  },
+  methods: {
+    checked (ind) {
+      switch (ind) {
+        case 1: 
+          {
+            this.checked1 = true
+            this.checked2 = false;
+            this.checked3 = false;
+            this.checked4 = false;
+          };
+          break;
+        case 2: 
+          {
+            this.checked1 = false
+            this.checked2 = true;
+            this.checked3 = false;
+            this.checked4 = false;
+          };
+          break;
+        case 3: 
+          {
+            this.checked1 = false
+            this.checked2 = false;
+            this.checked3 = true;
+            this.checked4 = false;
+            window.location = "https://www.jianshu.com/u/7b93153f345f";
+          };
+          break;
+        case 4: 
+          {
+            this.checked1 = false
+            this.checked2 = false;
+            this.checked3 = false;
+            this.checked4 = true;
+          };
+          break;
+         
+      } 
+    },
+    goTo (attr) {
+      if (attr === 'github') {
+        window.location = 'https://github.com/lele88lala';
+      } else if (attr === 'jianshu') {
+        window.location = "https://www.jianshu.com/u/7b93153f345f";
+      }
+    }
+  }
+})
+</script>
+<script src="./js/index.js"></script>
